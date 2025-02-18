@@ -32,6 +32,7 @@ func boids(delta): #Fonction appelée toutes les 0.3 secondes (temps modulable)
 	print(delta)
 	velocity.x = 200 * delta
 	dico_distances = main.dico_distances
+	var curr_velo : Vector2 = velocity
 	#3 Listes
 	if launched :
 		coherence()
