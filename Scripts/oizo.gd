@@ -13,7 +13,7 @@ var self_index : int  #index personnel dans la liste "cage" et dans le dictionna
 var dico_distances : Array
 
 func _ready() -> void:
-	refresh_rate.connect("timeout",boids)
+	refresh_rate.connect("timeout",boids.bind(get_physics_process_delta_time()))
 	velocity = Vector2.ZERO #met a zero tout les deplacements
 
 func _physics_process(delta: float):
@@ -28,11 +28,12 @@ func _physics_process(delta: float):
 
 #Fonctions a coder de Boids :
 
-func boids(): #Fonction appelée toutes les 0.3 secondes (temps modulable)
+func boids(delta): #Fonction appelée toutes les 0.3 secondes (temps modulable)
+	print(delta)
+	velocity.x = 200 * delta
 	dico_distances = main.dico_distances
 	#3 Listes
 	if launched :
-		print(dico_distances[self_index])
 		coherence()
 		alignement()
 		separation()
@@ -41,7 +42,8 @@ func boids(): #Fonction appelée toutes les 0.3 secondes (temps modulable)
 
 
 func coherence():
-	pass
+	var proch_oizo = boids_in_range(VISION_COHESION)
+	
 
 func alignement():
 	pass
@@ -50,5 +52,9 @@ func separation():
 	pass
 	
 
-func boids_in_range(distance : int):
-	pass
+func boids_in_range(range : int):
+	var res : Array = []
+	for i in dico_distances[self_index]:
+		if dico_distances[self_index][i] <= range :
+			res.append(i.y)
+	return res
