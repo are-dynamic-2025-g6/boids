@@ -34,6 +34,8 @@ func boids(delta): #Fonction appelée toutes les 0.3 secondes (temps modulable)
 	velocity.x = 200 * delta
 	dico_distances = main.dico_distances
 	#3 Listes
+	
+	#miam
 	if launched :
 		coherence()
 		alignement()
