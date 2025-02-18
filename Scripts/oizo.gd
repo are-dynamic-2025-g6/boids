@@ -47,7 +47,11 @@ func alignement():
 	pass
 
 func separation():
-	pass
+	var proche_x = 0
+	var proche_y = 0
+	for i in boids_in_range(VISION_SEPARATION):
+		proche_x = proche_x + 
+	
 	
 
 func boids_in_range(distance : int):
