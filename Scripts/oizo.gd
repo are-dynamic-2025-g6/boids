@@ -4,6 +4,7 @@ extends CharacterBody2D
 const VISION_SEPARATION = 20
 const VISION_ALIGNEMENT = 40
 const VISION_COHESION = 100
+const AVOID_FACTOR = 0.05
 var launched = false
 
 @onready var refresh_rate : Timer = get_parent().get_node("refresh_rate")
@@ -32,7 +33,6 @@ func boids(delta): #Fonction appelée toutes les 0.3 secondes (temps modulable)
 	print(delta)
 	velocity.x = 200 * delta
 	dico_distances = main.dico_distances
-	var curr_velo : Vector2 = velocity
 	#3 Listes
 	if launched :
 		coherence()
@@ -52,9 +52,17 @@ func alignement():
 func separation():
 	var proche_x = 0
 	var proche_y = 0
-	for i in boids_in_range(VISION_SEPARATION):
-		proche_x = proche_x + 
-	
+	var oiz = boids_in_range(VISION_SEPARATION)
+	if oiz:
+		for i in oiz:
+			proche_x += (position.x - cage[i].position.x)
+			proche_y += (position.y - cage[i].position.y)
+		curr_velo += Vector2(curr_velo + , velocity.y +)#blabnla
+
+		return True
+	else:
+		return False
+		
 	
 
 func boids_in_range(range : int):
