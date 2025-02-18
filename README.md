@@ -18,7 +18,11 @@ Alignment:
 Separation:
 - Each boid attempts to avoid running into other boids. If two or more boids get too close to one another, they will steer away from one another.
 
-ALORS:
+IDEAS:
+object to avoid
+Couzin's Law
+predator
+perching mecanism
 
 
 
