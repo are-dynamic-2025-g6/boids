@@ -57,8 +57,7 @@ func separation():
 		for i in oiz:
 			proche_x += (position.x - cage[i].position.x)
 			proche_y += (position.y - cage[i].position.y)
-		curr_velo += Vector2(curr_velo + , velocity.y +)#blabnla
-
+		curr_velo += Vector2(curr_velo.x + proche_x*AVOID_FACTOR ,curr_velo.y + proche_y*AVOID_FACTOR)
 		return True
 	else:
 		return False
