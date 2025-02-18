@@ -5,6 +5,7 @@ const VISION_SEPARATION = 20
 const VISION_ALIGNEMENT = 40
 const VISION_COHESION = 100
 var launched = false
+
 @onready var refresh_rate : Timer = get_parent().get_node("refresh_rate")
 @onready var main : Node2D = get_parent()
 @onready var cage : Array #Contient les listes des oiseaux,c'est par cette liste qu'on peut les manipuler
@@ -46,4 +47,8 @@ func alignement():
 	pass
 
 func separation():
+	pass
+	
+
+func boids_in_range(distance : int):
 	pass

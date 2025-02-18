@@ -1,15 +1,17 @@
 extends Node2D
+
 @onready var refresh_rate: Timer = $refresh_rate
 var oizo : PackedScene = preload("res://Scenes/oizo.tscn")
 var cage : Array[Node]
 var dico_distances : Array
 var curr_dist : float
+const NB_OIZO = 50
 
 func _ready() -> void:
 	#gere les doublons au spawn
-	for i in range(50):
+	for i in range(NB_OIZO):
 		var oizoo : CharacterBody2D = oizo.instantiate()
-		oizoo.position = Vector2(randi_range(0,1140),randi_range(0,640)) #coordonnées aleatoires
+		oizoo.position = Vector2(randi_range(0,1140),randi_range(0,620)) #coordonnées aleatoires
 		oizoo.self_index = i
 		print(oizoo.position)
 		add_child(oizoo)
