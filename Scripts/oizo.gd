@@ -1,7 +1,13 @@
 extends CharacterBody2D 
+#Constantes experimentales
+
+const VISION_SEPARATION = 20
+const VISION_ALIGNEMENT = 40
+const VISION_COHESION = 100
 var launched = false
 @onready var refresh_rate : Timer = get_parent().get_node("refresh_rate")
 @onready var main : Node2D = get_parent()
+@onready var cage : Array #Contient les listes des oiseaux,c'est par cette liste qu'on peut les manipuler
 var self_index : int  #index personnel dans la liste "cage" et dans le dictionnaire des distances
 var dico_distances : Array
 
@@ -10,7 +16,9 @@ func _ready() -> void:
 	velocity = Vector2.ZERO #met a zero tout les deplacements
 
 func _physics_process(delta: float):
+
 	if Input.is_action_just_pressed("ui_accept"):
+		cage = main.cage
 		launched = true
 	
 
@@ -21,6 +29,7 @@ func _physics_process(delta: float):
 
 func boids(): #Fonction appelée toutes les 0.3 secondes (temps modulable)
 	dico_distances = main.dico_distances
+	#3 Listes
 	if launched :
 		print(dico_distances[self_index])
 		coherence()
