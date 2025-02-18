@@ -53,6 +53,7 @@ func separation():
 	var proche_x = 0
 	var proche_y = 0
 	var oiz = boids_in_range(VISION_SEPARATION)
+	#CHANGEMENT
 	if oiz:
 		for i in oiz:
 			proche_x += (position.x - cage[i].position.x)
