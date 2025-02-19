@@ -2,15 +2,17 @@ extends CharacterBody2D
 #Next session : Bordures
 #Afficher les cercles de visions
 #Constantes experimentales
+#faire en sorte que le tout soit centrer quand ouvre grand fenetre
 
-const VISION_SEPARATION = 20
+const VISION_SEPARATION = 30 #plus on augmente ca moins ils ce rentrent dedans
 const VISION_ALIGNEMENT = 60
-const VISION_COHESION = 200
+const VISION_COHESION = 150
 const AVOID_FACTOR = 10
-const MATCHING_FACTOR = 0.5
+const MATCHING_FACTOR = 0.4
 const CENTERING_FACTOR = 2
-const MAX_SPEED = 10000
-const MIN_SPEED = 6000
+const MAX_SPEED = 12000
+const MIN_SPEED = 11000
+const TURN = 1000
 var launched = false
 var normaliseur : int 
 @onready var refresh_rate : Timer = get_parent().get_node("refresh_rate")
@@ -48,7 +50,6 @@ func _physics_process(delta: float):
 func boids():
 	normaliseur = 1 #je crois pas besoin de normaliseur vu que vitesse min et max, a voir.
 	dico_distances = main.dico_distances
-	print("boided")
 	if launched :
 		#coherence()
 		#alignement()
@@ -63,6 +64,19 @@ func boids():
 		if speed < MIN_SPEED:
 			curr_velo = Vector2((curr_velo.x/speed)*MIN_SPEED, (curr_velo.y/speed)*MIN_SPEED)
 		curr_velo  = curr_velo / (normaliseur)
+		
+		#tentative reste dans écrans
+		#les valeurs correspoindent a peux pres a la taille de l'écran, mais à adapter
+		#petit probleme ils tournent tous dans le meme sens = relou
+		if position.x < 50:
+			curr_velo.x += TURN
+		if position.x > 1090:
+			curr_velo.x -= TURN
+		if position.y < 50:
+			curr_velo.y += TURN
+		if position.y > 550:
+			curr_velo.y -= TURN
+		
 
 
 func coherence():
