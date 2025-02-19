@@ -2,9 +2,13 @@ extends CharacterBody2D
 #Constantes experimentales
 
 const VISION_SEPARATION = 50
-const VISION_ALIGNEMENT = 100
-const VISION_COHESION = 160
-const AVOID_FACTOR = 0.4
+const VISION_ALIGNEMENT = 150
+const VISION_COHESION = 200
+const AVOID_FACTOR = 0.5
+const MATCHING_FACTOR = 0.5
+const CENTERING_FACTOR = 0.05
+const MAX_SPEED = 5000
+const MIN_SPEED = 2000
 var launched = false
 
 @onready var refresh_rate : Timer = get_parent().get_node("refresh_rate")
@@ -18,7 +22,7 @@ var normaliseur : int
 func _ready() -> void:
 	refresh_rate.connect("timeout",boids)
 	#Definir une velocité de depart aleatoire :
-	curr_velo = Vector2(1000,0)  
+	curr_velo = Vector2(0,-2000)  
 
 func _physics_process(delta: float):
 	#velocity.x = 200 * delta #mouvement basique de gauche a droite,qui sera remplacé par la ligne d'en dessous
@@ -35,30 +39,64 @@ func _physics_process(delta: float):
 #Fonctions a coder de Boids :
 
 func boids():
-	normaliseur = 1
+	#normaliseur = 1 je crois pas besoin de normaliseur vu que vitesse min et max, a voir.
 	dico_distances = main.dico_distances
 	if launched :
 		coherence()
 		alignement()
-		normaliseur = normaliseur + 1 if separation() else normaliseur 
-		curr_velo  = curr_velo / normaliseur
+		separation()
+		#normaliseur = normaliseur + 1 if coherence() else normaliseur 
+		#normaliseur = normaliseur + 1 if alignement() else normaliseur 
+		#normaliseur = normaliseur + 1 if separation() else normaliseur 
+		#Calcule de vitesse
+		var speed = sqrt(velocity.x**2 + velocity.y**2)
+		if speed > MAX_SPEED:
+			curr_velo = Vector2((velocity.x/speed)*MAX_SPEED, (velocity.y/speed)*MAX_SPEED)
+		if speed < MIN_SPEED:
+			curr_velo = Vector2((velocity.x/speed)*MIN_SPEED, (velocity.y/speed)*MIN_SPEED)
 		
 
 
 func coherence():
-	var proch_oizo = boids_in_range(VISION_COHESION)
+	var moy_xpos = 0
+	var moy_ypos = 0
+	var oiz_coh = boids_in_range(VISION_COHESION)
+	var oizo_vus = len(oiz_coh)
+	if oizo_vus > 0:
+		print(oizo_vus)
+		for i in oiz_coh:
+			moy_xpos += cage[i].position.x
+			moy_ypos += cage[i].position.y
+		moy_xpos = moy_xpos/oizo_vus
+		moy_ypos = moy_ypos/oizo_vus
+		curr_velo += Vector2((moy_xpos-position.x)*CENTERING_FACTOR, (moy_ypos- position.y)*CENTERING_FACTOR)
+		return true
+	else:
+		return false
 	
 
 func alignement():
-	pass
+	var moy_xvel = 0
+	var moy_yvel = 0
+	var oiz_al = boids_in_range(VISION_ALIGNEMENT)
+	var oizo_vus = len(oiz_al)
+	if oizo_vus > 0:
+		for i in oiz_al:
+			moy_xvel += cage[i].velocity.x
+			moy_yvel += cage[i].velocity.y
+		moy_xvel = moy_xvel/oizo_vus
+		moy_yvel = moy_yvel/oizo_vus
+		curr_velo += Vector2((moy_xvel-velocity.x)*MATCHING_FACTOR, (moy_yvel-velocity.y)*MATCHING_FACTOR )
+		return true
+	else:
+		return false
 
 func separation():
 	var proche_x = 0
 	var proche_y = 0
-	var oiz = boids_in_range(VISION_SEPARATION)
-	if oiz:
-		print(oiz)
-		for i in oiz:
+	var oiz_sep = boids_in_range(VISION_SEPARATION)
+	if oiz_sep:
+		for i in oiz_sep:
 			proche_x += (position.x - cage[i].position.x)
 			proche_y += (position.y - cage[i].position.y)
 		curr_velo += Vector2(curr_velo.x + proche_x*AVOID_FACTOR ,curr_velo.y + proche_y*AVOID_FACTOR)
