@@ -6,6 +6,6 @@
 script = ExtResource("1_idd50")
 
 [node name="refresh_rate" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.2
 
 [connection signal="timeout" from="refresh_rate" to="." method="_on_timer_timeout"]

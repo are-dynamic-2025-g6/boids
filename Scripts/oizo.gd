@@ -1,19 +1,22 @@
 extends CharacterBody2D 
+#Next session : Bordures
+#Afficher les cercles de visions
 #Constantes experimentales
 
-const VISION_SEPARATION = 50
-const VISION_ALIGNEMENT = 150
+const VISION_SEPARATION = 20
+const VISION_ALIGNEMENT = 60
 const VISION_COHESION = 200
-const AVOID_FACTOR = 0.5
+const AVOID_FACTOR = 10
 const MATCHING_FACTOR = 0.5
-const CENTERING_FACTOR = 0.5
-const MAX_SPEED = 15000
-const MIN_SPEED = 2000
+const CENTERING_FACTOR = 2
+const MAX_SPEED = 10000
+const MIN_SPEED = 6000
 var launched = false
-
+var normaliseur : int 
 @onready var refresh_rate : Timer = get_parent().get_node("refresh_rate")
 @onready var main : Node2D = get_parent()
 @onready var cage : Array #Contient les listes des oiseaux,c'est par cette liste qu'on peut les manipuler
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var self_index : int  #index personnel dans la liste "cage" et dans le dictionnaire des distances
 var dico_distances : Array
 var curr_velo : Vector2
@@ -23,11 +26,14 @@ func _ready() -> void:
 	refresh_rate.connect("timeout",boids)
 	#Definir une velocité de depart aleatoire 
 	curr_velo = Vector2(randi_range(-2000,2000),randi_range(-2000, 2000)) #ATTENTION pour visualiser le bug, mettre a (1, 1)
+	#animated_sprite_2d.play("blue1")
 
 func _physics_process(delta: float):
 	#velocity.x = 200 * delta #mouvement basique de gauche a droite,qui sera remplacé par la ligne d'en dessous
 	velocity = curr_velo * delta   #Curr_velo sera notre vecteur direction a modifier
-	print(velocity) #ATTENTION, je crois le probleme viens d'ici, on peut voir que la vélocité 
+	rotation = velocity.angle() + PI/2
+	
+	#print(velocity) #ATTENTION, je crois le probleme viens d'ici, on peut voir que la vélocité 
 	#ne change pas avec ce print, meme avec l'influence des trois fonctions, je pense que la fonction boids()
 	#n'est genre appeler que une fois, ou pas appeler asser vite, ENFT je sais pas pk la velocité ne change pas bref.
 	if Input.is_action_just_pressed("ui_accept"):
@@ -40,22 +46,23 @@ func _physics_process(delta: float):
 #Fonctions a coder de Boids :
 
 func boids():
-	#normaliseur = 1 je crois pas besoin de normaliseur vu que vitesse min et max, a voir.
+	normaliseur = 1 #je crois pas besoin de normaliseur vu que vitesse min et max, a voir.
 	dico_distances = main.dico_distances
+	print("boided")
 	if launched :
-		coherence()
-		alignement()
-		separation()
-		#normaliseur = normaliseur + 1 if coherence() else normaliseur 
-		#normaliseur = normaliseur + 1 if alignement() else normaliseur 
-		#normaliseur = normaliseur + 1 if separation() else normaliseur 
+		#coherence()
+		#alignement()
+		#separation()
+		normaliseur = normaliseur + 1 if coherence() else normaliseur 
+		normaliseur = normaliseur + 1 if alignement() else normaliseur 
+		normaliseur = normaliseur + 1 if separation() else normaliseur 
 		#Calcule de vitesse
-		var speed = sqrt(velocity.x**2 + velocity.y**2)
+		var speed = sqrt(curr_velo.x**2 + curr_velo.y**2)
 		if speed > MAX_SPEED:
-			curr_velo = Vector2((velocity.x/speed)*MAX_SPEED, (velocity.y/speed)*MAX_SPEED)
+			curr_velo = Vector2((curr_velo.x/speed)*MAX_SPEED, (curr_velo.y/speed)*MAX_SPEED)
 		if speed < MIN_SPEED:
-			curr_velo = Vector2((velocity.x/speed)*MIN_SPEED, (velocity.y/speed)*MIN_SPEED)
-		
+			curr_velo = Vector2((curr_velo.x/speed)*MIN_SPEED, (curr_velo.y/speed)*MIN_SPEED)
+		curr_velo  = curr_velo / (normaliseur)
 
 
 func coherence():
@@ -82,8 +89,8 @@ func alignement():
 	var oizo_vus = len(oiz_al)
 	if oizo_vus > 0:
 		for i in oiz_al:
-			moy_xvel += cage[i].velocity.x
-			moy_yvel += cage[i].velocity.y
+			moy_xvel += cage[i].curr_velo.x
+			moy_yvel += cage[i].curr_velo.y
 		moy_xvel = moy_xvel/oizo_vus
 		moy_yvel = moy_yvel/oizo_vus
 		curr_velo += Vector2((moy_xvel-velocity.x)*MATCHING_FACTOR, (moy_yvel-velocity.y)*MATCHING_FACTOR)
