@@ -36,6 +36,9 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["Zoizos"]]
+collision_layer = 0
+collision_mask = 0
+safe_margin = 1.24
 script = ExtResource("1_cv4l7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

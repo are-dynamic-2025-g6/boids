@@ -6,8 +6,8 @@ const VISION_ALIGNEMENT = 150
 const VISION_COHESION = 200
 const AVOID_FACTOR = 0.5
 const MATCHING_FACTOR = 0.5
-const CENTERING_FACTOR = 0.05
-const MAX_SPEED = 5000
+const CENTERING_FACTOR = 0.5
+const MAX_SPEED = 15000
 const MIN_SPEED = 2000
 var launched = false
 
@@ -17,21 +17,22 @@ var launched = false
 var self_index : int  #index personnel dans la liste "cage" et dans le dictionnaire des distances
 var dico_distances : Array
 var curr_velo : Vector2
-var normaliseur : int
+#var normaliseur : int
 
 func _ready() -> void:
 	refresh_rate.connect("timeout",boids)
-	#Definir une velocité de depart aleatoire :
-	curr_velo = Vector2(0,-2000)  
+	#Definir une velocité de depart aleatoire 
+	curr_velo = Vector2(randi_range(-2000,2000),randi_range(-2000, 2000)) #ATTENTION pour visualiser le bug, mettre a (1, 1)
 
 func _physics_process(delta: float):
 	#velocity.x = 200 * delta #mouvement basique de gauche a droite,qui sera remplacé par la ligne d'en dessous
 	velocity = curr_velo * delta   #Curr_velo sera notre vecteur direction a modifier
-	
+	print(velocity) #ATTENTION, je crois le probleme viens d'ici, on peut voir que la vélocité 
+	#ne change pas avec ce print, meme avec l'influence des trois fonctions, je pense que la fonction boids()
+	#n'est genre appeler que une fois, ou pas appeler asser vite, ENFT je sais pas pk la velocité ne change pas bref.
 	if Input.is_action_just_pressed("ui_accept"):
 		cage = main.cage
 		launched = true
-	
 
 	move_and_slide()
 
@@ -63,7 +64,6 @@ func coherence():
 	var oiz_coh = boids_in_range(VISION_COHESION)
 	var oizo_vus = len(oiz_coh)
 	if oizo_vus > 0:
-		print(oizo_vus)
 		for i in oiz_coh:
 			moy_xpos += cage[i].position.x
 			moy_ypos += cage[i].position.y
@@ -86,7 +86,7 @@ func alignement():
 			moy_yvel += cage[i].velocity.y
 		moy_xvel = moy_xvel/oizo_vus
 		moy_yvel = moy_yvel/oizo_vus
-		curr_velo += Vector2((moy_xvel-velocity.x)*MATCHING_FACTOR, (moy_yvel-velocity.y)*MATCHING_FACTOR )
+		curr_velo += Vector2((moy_xvel-velocity.x)*MATCHING_FACTOR, (moy_yvel-velocity.y)*MATCHING_FACTOR)
 		return true
 	else:
 		return false
