@@ -7,11 +7,11 @@ extends CharacterBody2D
 const VISION_SEPARATION = 30 #plus on augmente ca moins ils ce rentrent dedans
 const VISION_ALIGNEMENT = 60
 const VISION_COHESION = 150
-const AVOID_FACTOR = 10
+const AVOID_FACTOR = 15
 const MATCHING_FACTOR = 0.4
 const CENTERING_FACTOR = 2
-const MAX_SPEED = 12000
-const MIN_SPEED = 11000
+const MAX_SPEED = 14000
+const MIN_SPEED = 13000
 const TURN = 1000
 var launched = false
 var normaliseur : int 
@@ -68,16 +68,25 @@ func boids():
 		#tentative reste dans écrans
 		#les valeurs correspoindent a peux pres a la taille de l'écran, mais à adapter
 		#petit probleme ils tournent tous dans le meme sens = relou
-		if position.x < 50:
-			curr_velo.x += TURN
-		if position.x > 1090:
-			curr_velo.x -= TURN
-		if position.y < 50:
-			curr_velo.y += TURN
-		if position.y > 550:
-			curr_velo.y -= TURN
-		
+		#stay_in_screen_turn()
+		#stay_in_screen_inv()
 
+
+func stay_in_screen_turn() :
+	if position.x < 50:
+		curr_velo.x += TURN
+	if position.x > 1090:
+		curr_velo.x -= TURN
+	if position.y < 50:
+		curr_velo.y += TURN
+	if position.y > 550:
+		curr_velo.y -= TURN
+		
+func stay_in_screen_inv():
+	if position.x > 1140 or position.x < 10 :
+		curr_velo.x = -curr_velo.x
+	elif position.y > 630  or position.y < 10 :
+		curr_velo.y = -curr_velo.y
 
 func coherence():
 	var moy_xpos = 0
