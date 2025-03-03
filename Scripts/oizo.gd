@@ -68,7 +68,7 @@ func boids():
 		#tentative reste dans écrans
 		#les valeurs correspoindent a peux pres a la taille de l'écran, mais à adapter
 		#petit probleme ils tournent tous dans le meme sens = relou
-		#stay_in_screen_turn()
+		stay_in_screen_turn()
 		#stay_in_screen_inv()
 
 
