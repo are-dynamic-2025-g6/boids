@@ -65,16 +65,12 @@ func boids():
 			curr_velo = Vector2((curr_velo.x/speed)*MIN_SPEED, (curr_velo.y/speed)*MIN_SPEED)
 		curr_velo  = curr_velo / (normaliseur)
 		
-<<<<<<< HEAD
 		#tentative reste dans écrans
 		#les valeurs correspoindent a peux pres a la taille de l'écran, mais à adapter
 		#petit probleme ils tournent tous dans le meme sens = relou
-		stay_in_screen_turn()
 		#stay_in_screen_inv()
-=======
 		#stay_in_screen_turn()
 		stay_in_screen_inv()
->>>>>>> bfe269f9d767d33aaa15d793d2011cae1273fd57
 
 
 func stay_in_screen_turn() :
