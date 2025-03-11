@@ -5,7 +5,7 @@ var oizo : PackedScene = preload("res://Scenes/oizo.tscn")
 var cage : Array[Node]
 var dico_distances : Array
 var curr_dist : float
-const NB_OIZO = 100
+const NB_OIZO = 150
 
 func _ready() -> void:
 	#gere les doublons au spawn

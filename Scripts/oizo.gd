@@ -64,7 +64,7 @@ func boids():
 			curr_velo = Vector2((curr_velo.x/speed)*MAX_SPEED, (curr_velo.y/speed)*MAX_SPEED)
 		if speed < MIN_SPEED:
 			curr_velo = Vector2((curr_velo.x/speed)*MIN_SPEED, (curr_velo.y/speed)*MIN_SPEED)
-		if normaliseur == 1 :
+		if normaliseur < 3 :
 			curr_velo  = curr_velo / 4
 		else :
 			curr_velo  = curr_velo /(normaliseur * 0.7)
