@@ -64,7 +64,10 @@ func boids():
 			curr_velo = Vector2((curr_velo.x/speed)*MAX_SPEED, (curr_velo.y/speed)*MAX_SPEED)
 		if speed < MIN_SPEED:
 			curr_velo = Vector2((curr_velo.x/speed)*MIN_SPEED, (curr_velo.y/speed)*MIN_SPEED)
-		curr_velo  = curr_velo /(normaliseur * 0.7)
+		if normaliseur == 1 :
+			curr_velo  = curr_velo / 2
+		else :
+			curr_velo  = curr_velo /(normaliseur * 0.7)
 		#curr_velo += Vector2(randf_range(-700,700),randf_range(-700,700)) #wiggle
 		#tentative reste dans écrans
 		#les valeurs correspoindent a peux pres a la taille de l'écran, mais à adapter
