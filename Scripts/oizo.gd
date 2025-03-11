@@ -5,11 +5,11 @@ extends CharacterBody2D
 #faire en sorte que le tout soit centrer quand ouvre grand fenetre
 
 const VISION_SEPARATION = 30 #plus on augmente ca moins ils ce rentrent dedans
-const VISION_ALIGNEMENT = 60
+const VISION_ALIGNEMENT = 50
 const VISION_COHESION = 150
 const AVOID_FACTOR = 15
 const MATCHING_FACTOR = 1
-const CENTERING_FACTOR = 2
+const CENTERING_FACTOR = 1
 const MAX_SPEED = 14000
 const MIN_SPEED = 13000
 const TURN = 1000
@@ -65,7 +65,7 @@ func boids():
 		if speed < MIN_SPEED:
 			curr_velo = Vector2((curr_velo.x/speed)*MIN_SPEED, (curr_velo.y/speed)*MIN_SPEED)
 		if normaliseur == 1 :
-			curr_velo  = curr_velo / 2
+			curr_velo  = curr_velo / 4
 		else :
 			curr_velo  = curr_velo /(normaliseur * 0.7)
 		#curr_velo += Vector2(randf_range(-700,700),randf_range(-700,700)) #wiggle
