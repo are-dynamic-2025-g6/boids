@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://lgi80qlcv7go"]
+[gd_scene load_steps=10 format=3 uid="uid://lgi80qlcv7go"]
 
 [ext_resource type="Script" path="res://Scripts/oizo.gd" id="1_cv4l7"]
 [ext_resource type="Texture2D" uid="uid://qfy3h78tkq1v" path="res://Assets/oizos/bird_1_bluejay.png" id="2_rtbc5"]
+[ext_resource type="Texture2D" uid="uid://er54uynoqrqb" path="res://Assets/oizos/oizos.png" id="3_7km0i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qa2jp"]
 size = Vector2(9.875, 17.125)
@@ -18,6 +19,10 @@ region = Rect2(32, 32, 32, 32)
 atlas = ExtResource("2_rtbc5")
 region = Rect2(64, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_43jyo"]
+atlas = ExtResource("3_7km0i")
+region = Rect2(0, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_j8di5"]
 animations = [{
 "frames": [{
@@ -33,6 +38,14 @@ animations = [{
 "loop": true,
 "name": &"blue1",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43jyo")
+}],
+"loop": true,
+"name": &"oizo",
+"speed": 5.0
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["Zoizos"]]
@@ -45,8 +58,7 @@ script = ExtResource("1_cv4l7")
 shape = SubResource("RectangleShape2D_qa2jp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.602095, 0.610882)
+scale = Vector2(0.985, 1)
 sprite_frames = SubResource("SpriteFrames_j8di5")
-animation = &"blue1"
-frame = 1
-frame_progress = 0.72706
+animation = &"oizo"
+autoplay = "oizo"

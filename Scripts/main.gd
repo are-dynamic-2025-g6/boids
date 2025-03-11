@@ -21,7 +21,6 @@ func _ready() -> void:
 	refresh_rate.start()
 
 
-
 func _process(delta: float) -> void:
 	#if Input.is_action_just_pressed("print"):
 	#	print(dico_distances)
