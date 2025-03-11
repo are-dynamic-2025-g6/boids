@@ -55,8 +55,9 @@ func boids():
 		#alignement()
 		#separation()
 		normaliseur = normaliseur + 1 if coherence() else normaliseur 
+		normaliseur = normaliseur + 1 if separation() else normaliseur
 		normaliseur = normaliseur + 1 if alignement() else normaliseur 
-		normaliseur = normaliseur + 1 if separation() else normaliseur 
+		 
 		#Calcule de vitesse
 		var speed = sqrt(curr_velo.x**2 + curr_velo.y**2)
 		if speed > MAX_SPEED:
@@ -64,13 +65,12 @@ func boids():
 		if speed < MIN_SPEED:
 			curr_velo = Vector2((curr_velo.x/speed)*MIN_SPEED, (curr_velo.y/speed)*MIN_SPEED)
 		curr_velo  = curr_velo / (normaliseur)
-		
+		curr_velo += Vector2(randf_range(-700,700),randf_range(-700,700)) #wiggle
 		#tentative reste dans écrans
 		#les valeurs correspoindent a peux pres a la taille de l'écran, mais à adapter
 		#petit probleme ils tournent tous dans le meme sens = relou
 		#stay_in_screen_inv()
-		#stay_in_screen_turn()
-		stay_in_screen_inv()
+		stay_in_screen_turn()
 
 
 func stay_in_screen_turn() :
