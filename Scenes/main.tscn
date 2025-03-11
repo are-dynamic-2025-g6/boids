@@ -8,4 +8,9 @@ script = ExtResource("1_idd50")
 [node name="refresh_rate" type="Timer" parent="."]
 wait_time = 0.2
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 644.0
+color = Color(0.8, 1, 1, 1)
+
 [connection signal="timeout" from="refresh_rate" to="." method="_on_timer_timeout"]

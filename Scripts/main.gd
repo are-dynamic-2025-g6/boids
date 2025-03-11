@@ -13,6 +13,7 @@ func _ready() -> void:
 		var oizoo : CharacterBody2D = oizo.instantiate()
 		oizoo.position = Vector2(randi_range(0,1140),randi_range(0,620)) #coordonnées aleatoires
 		oizoo.self_index = i
+		oizoo.z_index = 1
 		print(oizoo.position)
 		add_child(oizoo)
 		dico_distances.append({})
