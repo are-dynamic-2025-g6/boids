@@ -72,5 +72,5 @@ horizontal_alignment = 1
 
 [connection signal="timeout" from="refresh_rate" to="." method="_on_timer_timeout"]
 [connection signal="value_changed" from="coherence" to="." method="val_change" binds= ["coherence"]]
-[connection signal="value_changed" from="alignment" to="." method="val_change" binds= ["alignement"]]
+[connection signal="value_changed" from="alignment" to="." method="val_change" binds= ["alignment"]]
 [connection signal="value_changed" from="avoid" to="." method="val_change" binds= ["avoid"]]
