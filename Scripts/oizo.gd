@@ -4,9 +4,9 @@ extends CharacterBody2D
 #Constantes experimentales
 #faire en sorte que le tout soit centrer quand ouvre grand fenetre -> pas important puisque dans la page ce sera petit
 
-const VISION_SEPARATION = 30 #plus on augmente ca moins ils ce rentrent dedans
-const VISION_ALIGNEMENT = 50
-const VISION_COHESION = 150
+var VISION_SEPARATION = 30 #plus on augmente ca moins ils ce rentrent dedans
+var VISION_ALIGNEMENT = 50
+var VISION_COHESION = 150
 const AVOID_FACTOR = 15
 const MATCHING_FACTOR = 1
 const CENTERING_FACTOR = 1

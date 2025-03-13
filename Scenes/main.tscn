@@ -13,4 +13,64 @@ offset_right = 1152.0
 offset_bottom = 644.0
 color = Color(0.8, 1, 1, 1)
 
+[node name="coherence" type="HSlider" parent="."]
+offset_left = 39.0
+offset_top = 548.0
+offset_right = 324.0
+offset_bottom = 591.0
+max_value = 500.0
+value = 150.0
+
+[node name="coherence2" type="Label" parent="."]
+offset_left = 438.0
+offset_top = 585.0
+offset_right = 701.0
+offset_bottom = 630.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Alignment
+"
+horizontal_alignment = 1
+
+[node name="alignment" type="HSlider" parent="."]
+offset_left = 426.0
+offset_top = 548.0
+offset_right = 711.0
+offset_bottom = 591.0
+max_value = 250.0
+value = 50.0
+
+[node name="alignment2" type="Label" parent="."]
+offset_left = 53.0
+offset_top = 585.0
+offset_right = 316.0
+offset_bottom = 630.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Cohesion
+"
+horizontal_alignment = 1
+
+[node name="avoid" type="HSlider" parent="."]
+offset_left = 825.0
+offset_top = 548.0
+offset_right = 1110.0
+offset_bottom = 591.0
+max_value = 250.0
+value = 30.0
+
+[node name="avoid2" type="Label" parent="."]
+offset_left = 838.0
+offset_top = 585.0
+offset_right = 1101.0
+offset_bottom = 630.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Avoid
+"
+horizontal_alignment = 1
+
 [connection signal="timeout" from="refresh_rate" to="." method="_on_timer_timeout"]
+[connection signal="value_changed" from="coherence" to="." method="val_change" binds= ["coherence"]]
+[connection signal="value_changed" from="alignment" to="." method="val_change" binds= ["alignement"]]
+[connection signal="value_changed" from="avoid" to="." method="val_change" binds= ["avoid"]]

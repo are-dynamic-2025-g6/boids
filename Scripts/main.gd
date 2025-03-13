@@ -51,3 +51,13 @@ func get_dico_distances():
 
 func distance(obj1 : CharacterBody2D,obj2 : CharacterBody2D) -> float :
 	return ((obj1.global_position.x-obj2.global_position.x)**2 + (obj1.global_position.y - obj2.global_position.y)**2)**0.5
+
+func val_change(value : int,param : String) :
+	for i in cage :
+		match param :
+			"coherence" :
+				i.VISION_COHESION = value
+			"alignment" :
+				i.VISION_ALIGNEMENT = value
+			"avoid" :
+				i.VISION_SEPARATION = value
