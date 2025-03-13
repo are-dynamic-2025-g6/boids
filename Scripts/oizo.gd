@@ -2,7 +2,7 @@ extends CharacterBody2D
 #Next session : Bordures
 #Afficher les cercles de visions
 #Constantes experimentales
-#faire en sorte que le tout soit centrer quand ouvre grand fenetre
+#faire en sorte que le tout soit centrer quand ouvre grand fenetre -> pas important puisque dans la page ce sera petit
 
 const VISION_SEPARATION = 30 #plus on augmente ca moins ils ce rentrent dedans
 const VISION_ALIGNEMENT = 50
@@ -27,17 +27,13 @@ var curr_velo : Vector2
 func _ready() -> void:
 	refresh_rate.connect("timeout",boids)
 	#Definir une velocité de depart aleatoire 
-	curr_velo = Vector2(randi_range(-2000,2000),randi_range(-2000, 2000)) #ATTENTION pour visualiser le bug, mettre a (1, 1)
-	#animated_sprite_2d.play("blue1")
+	curr_velo = Vector2(randi_range(-2000,2000),randi_range(-2000, 2000))
 
 func _physics_process(delta: float):
-	#velocity.x = 200 * delta #mouvement basique de gauche a droite,qui sera remplacé par la ligne d'en dessous
 	velocity = curr_velo * delta   #Curr_velo sera notre vecteur direction a modifier
 	rotation = velocity.angle() + PI/2
 	
-	#print(velocity) #ATTENTION, je crois le probleme viens d'ici, on peut voir que la vélocité 
-	#ne change pas avec ce print, meme avec l'influence des trois fonctions, je pense que la fonction boids()
-	#n'est genre appeler que une fois, ou pas appeler asser vite, ENFT je sais pas pk la velocité ne change pas bref.
+	#print(velocity) #debug
 	if Input.is_action_just_pressed("ui_accept"):
 		cage = main.cage
 		launched = true
@@ -48,7 +44,7 @@ func _physics_process(delta: float):
 #Fonctions a coder de Boids :
 
 func boids():
-	normaliseur = 1 #je crois pas besoin de normaliseur vu que vitesse min et max, a voir.
+	normaliseur = 1 
 	dico_distances = main.dico_distances
 	if launched :
 		#coherence()
@@ -58,19 +54,17 @@ func boids():
 		normaliseur = normaliseur + 1 if separation() else normaliseur
 		normaliseur = normaliseur + 1 if alignement() else normaliseur 
 		 
-		#Calcule de vitesse
+		#Calcul de vitesse
 		var speed = sqrt(curr_velo.x**2 + curr_velo.y**2)
 		if speed > MAX_SPEED:
 			curr_velo = Vector2((curr_velo.x/speed)*MAX_SPEED, (curr_velo.y/speed)*MAX_SPEED)
 		if speed < MIN_SPEED:
 			curr_velo = Vector2((curr_velo.x/speed)*MIN_SPEED, (curr_velo.y/speed)*MIN_SPEED)
 		if normaliseur < 3 :
-			curr_velo  = curr_velo / 4
+			curr_velo  = curr_velo / 6
 		else :
 			curr_velo  = curr_velo /(normaliseur * 0.7)
 		#curr_velo += Vector2(randf_range(-700,700),randf_range(-700,700)) #wiggle
-		#tentative reste dans écrans
-		#les valeurs correspoindent a peux pres a la taille de l'écran, mais à adapter
 		#petit probleme ils tournent tous dans le meme sens = relou
 		#stay_in_screen_inv()
 		stay_in_screen_turn()
