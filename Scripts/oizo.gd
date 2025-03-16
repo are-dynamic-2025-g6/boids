@@ -71,13 +71,13 @@ func boids():
 
 
 func stay_in_screen_turn() :
-	if position.x < 50:
+	if position.x < 60:
 		curr_velo.x += TURN
-	if position.x > 1090:
+	if position.x > 1080:
 		curr_velo.x -= TURN
-	if position.y < 50:
+	if position.y < 60:
 		curr_velo.y += TURN
-	if position.y > 550:
+	if position.y > 530:
 		curr_velo.y -= TURN
 		
 func stay_in_screen_inv():

@@ -70,7 +70,28 @@ text = "Avoid
 "
 horizontal_alignment = 1
 
+[node name="speed" type="VSlider" parent="."]
+offset_left = 1088.0
+offset_top = 198.0
+offset_right = 1154.0
+offset_bottom = 421.0
+max_value = 200.0
+value = 100.0
+
+[node name="speed2" type="Label" parent="."]
+offset_left = 1115.0
+offset_top = 185.0
+offset_right = 1378.0
+offset_bottom = 230.0
+rotation = 1.5708
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Speed
+"
+horizontal_alignment = 1
+
 [connection signal="timeout" from="refresh_rate" to="." method="_on_timer_timeout"]
 [connection signal="value_changed" from="coherence" to="." method="val_change" binds= ["coherence"]]
 [connection signal="value_changed" from="alignment" to="." method="val_change" binds= ["alignment"]]
 [connection signal="value_changed" from="avoid" to="." method="val_change" binds= ["avoid"]]
+[connection signal="value_changed" from="speed" to="." method="val_change" binds= ["speed"]]
