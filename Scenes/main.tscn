@@ -97,5 +97,5 @@ horizontal_alignment = 1
 [connection signal="value_changed" from="alignment" to="." method="val_change" binds= ["alignment"]]
 [connection signal="value_changed" from="avoid" to="." method="val_change" binds= ["avoid"]]
 [connection signal="value_changed" from="speed" to="." method="val_change" binds= ["speed"]]
-[connection signal="timeout" from="Annalyse" to="." method="_on_annalyse_timeout"]
 [connection signal="timeout" from="Annalyse" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Annalyse" to="." method="_on_annalyse_timeout"]
