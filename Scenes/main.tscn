@@ -56,7 +56,7 @@ offset_left = 825.0
 offset_top = 548.0
 offset_right = 1110.0
 offset_bottom = 591.0
-max_value = 250.0
+max_value = 150.0
 value = 30.0
 
 [node name="avoid2" type="Label" parent="."]
@@ -75,7 +75,7 @@ offset_left = 1088.0
 offset_top = 198.0
 offset_right = 1154.0
 offset_bottom = 421.0
-max_value = 200.0
+max_value = 250.0
 value = 100.0
 
 [node name="speed2" type="Label" parent="."]
