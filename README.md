@@ -23,7 +23,8 @@ object to avoid
 Couzin's Law
 predator
 perching mecanism
-
+On peut voir la longueur des groupes avec l'algorithme de kmeans.
+Pour créer les groupes on attribue à chaque oiseaux d'un groupe un indicateur et on prend les points les plus extrêmes. Puis on les compare avec les points les plus extrême des autres groupes et on voit si ils sont confondu si oui on combiné les groupes.
 
 
 
