@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var refresh_rate: Timer = $refresh_rate
-@onready var Annalyse: Timer = $Annalyse
+@onready var Analyse: Timer = $Analyse
 var oizo : PackedScene = preload("res://Scenes/oizo.tscn")
 var cage : Array[Node]
 var dico_distances : Array
@@ -10,7 +10,7 @@ var l=[]
 var L=[]
 var k=true
 const p=10
-const NB_OIZO = 200
+const NB_OIZO = 125
 
 func _ready() -> void:
 	#gere les doublons au spawn
@@ -25,7 +25,7 @@ func _ready() -> void:
 		
 	cage = get_tree().get_nodes_in_group("Zoizos")
 	refresh_rate.start()
-	Annalyse.start()
+	Analyse.start()
 
 
 func _process(delta: float) -> void:
@@ -33,9 +33,6 @@ func _process(delta: float) -> void:
 	#	print(dico_distances)
 	pass
 
-
-func _on_timer_timeout() -> void:
-	get_dico_distances()
 
 
 func get_dico_distances():
@@ -70,6 +67,12 @@ func val_change(value : int,param : String) :
 			"speed":
 				Engine.time_scale = float(value) / 100
 
+func array_coord():
+	var coords : Array = []
+	for i in cage :
+		coords.append(i.global_position)
+	print(coords)
+
 func proche():
 	l=[]
 	for i in dico_distances:
@@ -80,6 +83,7 @@ func proche():
 				k=false
 	L.append(len(l))
 
-func _on_annalyse_timeout() -> void:
-	proche()
-	print(len(l),L)
+func _on_analyse_timeout() -> void:
+	pass
+	#proche()
+	#print(len(l),L)

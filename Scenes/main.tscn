@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://thl1p0fnrur4"]
 
-[ext_resource type="Script" uid="uid://pqcjm1f4lnqt" path="res://Scripts/main.gd" id="1_idd50"]
+[ext_resource type="Script" uid="uid://celyy60rfuokp" path="res://Scripts/main.gd" id="1_idd50"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_idd50")
@@ -90,13 +90,13 @@ text = "Speed
 "
 horizontal_alignment = 1
 
-[node name="Annalyse" type="Timer" parent="."]
+[node name="Analyse" type="Timer" parent="."]
 wait_time = 5.0
 
-[connection signal="timeout" from="refresh_rate" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="refresh_rate" to="." method="get_dico_distances"]
 [connection signal="value_changed" from="coherence" to="." method="val_change" binds= ["coherence"]]
 [connection signal="value_changed" from="alignment" to="." method="val_change" binds= ["alignment"]]
 [connection signal="value_changed" from="avoid" to="." method="val_change" binds= ["avoid"]]
 [connection signal="value_changed" from="speed" to="." method="val_change" binds= ["speed"]]
-[connection signal="timeout" from="Annalyse" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Annalyse" to="." method="_on_annalyse_timeout"]
+[connection signal="timeout" from="Analyse" to="." method="array_coord"]
+[connection signal="timeout" from="Analyse" to="." method="_on_analyse_timeout"]
