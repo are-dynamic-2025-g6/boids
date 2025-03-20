@@ -10,7 +10,7 @@ var l=[]
 var L=[]
 var k=true
 const p=10
-const NB_OIZO = 125
+const NB_OIZO = 200
 
 func _ready() -> void:
 	#gere les doublons au spawn

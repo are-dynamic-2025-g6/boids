@@ -57,7 +57,7 @@ offset_top = 548.0
 offset_right = 1110.0
 offset_bottom = 591.0
 max_value = 150.0
-value = 30.0
+value = 15.0
 
 [node name="avoid2" type="Label" parent="."]
 offset_left = 838.0
@@ -91,6 +91,7 @@ text = "Speed
 horizontal_alignment = 1
 
 [node name="Annalyse" type="Timer" parent="."]
+wait_time = 5.0
 
 [connection signal="timeout" from="refresh_rate" to="." method="_on_timer_timeout"]
 [connection signal="value_changed" from="coherence" to="." method="val_change" binds= ["coherence"]]
