@@ -23,6 +23,7 @@ object to avoid
 Couzin's Law
 predator
 perching mecanism
+On peut voir la longueur des groupes avec l'algorithme de kmeans.
 
 
 
