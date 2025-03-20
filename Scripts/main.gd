@@ -1,10 +1,15 @@
 extends Node2D
 
 @onready var refresh_rate: Timer = $refresh_rate
+@onready var Annalyse: Timer = $Annalyse
 var oizo : PackedScene = preload("res://Scenes/oizo.tscn")
 var cage : Array[Node]
 var dico_distances : Array
 var curr_dist : float
+var l=[]
+var L=[]
+var k=true
+const p=10
 const NB_OIZO = 125
 
 func _ready() -> void:
@@ -20,6 +25,7 @@ func _ready() -> void:
 		
 	cage = get_tree().get_nodes_in_group("Zoizos")
 	refresh_rate.start()
+	Annalyse.start()
 
 
 func _process(delta: float) -> void:
@@ -63,3 +69,17 @@ func val_change(value : int,param : String) :
 				i.VISION_SEPARATION = value
 			"speed":
 				Engine.time_scale = float(value) / 100
+
+func proche():
+	l=[]
+	for i in dico_distances:
+		k=true
+		for j in i:
+			if i[j]<p and k==true:
+				l.append(1)
+				k=false
+	L.append(len(l))
+
+func _on_annalyse_timeout() -> void:
+	proche()
+	print(len(l),L)

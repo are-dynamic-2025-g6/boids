@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://lgi80qlcv7go"]
 
-[ext_resource type="Script" path="res://Scripts/oizo.gd" id="1_cv4l7"]
+[ext_resource type="Script" uid="uid://dywgatc5we5de" path="res://Scripts/oizo.gd" id="1_cv4l7"]
 [ext_resource type="Texture2D" uid="uid://qfy3h78tkq1v" path="res://Assets/oizos/bird_1_bluejay.png" id="2_rtbc5"]
 [ext_resource type="Texture2D" uid="uid://er54uynoqrqb" path="res://Assets/oizos/oizos.png" id="3_7km0i"]
 
