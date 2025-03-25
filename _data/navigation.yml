@@ -1,8 +1,8 @@
 main:
   - title: "Home"
     url: "/"
-  - title: "Explaination"
-    url: "/explanaition/"
+  - title: "Explanation"
+    url: "/explanation/"
   - title: "Showcase"
     url: "/showcase/"
   - title: "Analysis"
