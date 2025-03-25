@@ -37,7 +37,7 @@ offset_left = 426.0
 offset_top = 548.0
 offset_right = 711.0
 offset_bottom = 591.0
-max_value = 250.0
+max_value = 500.0
 value = 50.0
 
 [node name="alignment2" type="Label" parent="."]
@@ -91,7 +91,7 @@ text = "Speed
 horizontal_alignment = 1
 
 [node name="Analyse" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
 
 [connection signal="timeout" from="refresh_rate" to="." method="get_dico_distances"]
 [connection signal="value_changed" from="coherence" to="." method="val_change" binds= ["coherence"]]

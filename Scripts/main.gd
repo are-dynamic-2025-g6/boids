@@ -9,6 +9,8 @@ var curr_dist : float
 var l=[]
 var L=[]
 var k=true
+var made : bool = true
+var compte_analyse : int = 0
 const p=10
 const NB_OIZO = 125
 
@@ -68,10 +70,26 @@ func val_change(value : int,param : String) :
 				Engine.time_scale = float(value) / 100
 
 func array_coord():
-	var coords : Array = []
-	for i in cage :
-		coords.append(i.global_position)
-	print(coords)
+	compte_analyse += 1
+	var path = OS.get_system_dir(OS.SYSTEM_DIR_DESKTOP) + "/Sc-Fo/Boids/boids/Analyse/"
+	var dir = DirAccess.open(OS.get_system_dir(OS.SYSTEM_DIR_DESKTOP))
+	var file : FileAccess
+	if compte_analyse < 20 :
+		if made :
+			file = FileAccess.open(path + "data_sim_coords.csv", FileAccess.WRITE)
+			#file.store_csv_line(["x", "y"])
+			made = false
+			print("premiere fois")
+		else :
+			file = FileAccess.open(path + "data_sim_coords.csv", FileAccess.READ_WRITE)
+			file.seek_end() 
+			file.store_csv_line(["#Simulation suivante"])
+			print("deuxieme fois")
+		#var coords : Array = []
+		for i in cage :
+			file.store_csv_line([i.global_position.x, i.global_position.y])
+			#coords.append(i.global_position)
+		#print(coords)
 
 func proche():
 	l=[]

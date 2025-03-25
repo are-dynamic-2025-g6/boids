@@ -34,12 +34,13 @@ func _physics_process(delta: float):
 	rotation = velocity.angle() + PI/2
 	
 	#print(velocity) #debug
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept") and not launched:
 		cage = main.cage
 		launched = true
-	if Input.is_action_just_pressed("Pause"):
-		launched=false
+	elif Input.is_action_just_pressed("ui_accept") and launched :
+		launched= !launched
 		curr_velo=Vector2(randi_range(-2000,2000),randi_range(-2000,2000))
+		cage = main.cage
 	move_and_slide()
 
 
