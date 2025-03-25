@@ -37,7 +37,9 @@ func _physics_process(delta: float):
 	if Input.is_action_just_pressed("ui_accept"):
 		cage = main.cage
 		launched = true
-
+	if Input.is_action_just_pressed("Pause"):
+		launched=false
+		curr_velo=Vector2(randi_range(-2000,2000),randi_range(-2000,2000))
 	move_and_slide()
 
 
