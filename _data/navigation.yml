@@ -1,0 +1,13 @@
+main:
+  - title: "Home"
+    url: "/"
+  - title: "Explaination"
+    url: "/explanaition/"
+  - title: "Showcase"
+    url: "/showcase/"
+  - title: "Analysis"
+    url: "/analysis/"
+  - title: "Weekly Progress"
+    url: "/documentation/"
+  - title: "Download"
+    url: "/download/"
