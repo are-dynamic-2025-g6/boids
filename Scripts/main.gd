@@ -91,7 +91,7 @@ func array_coord():
 			#coords.append(i.global_position)
 		#print(coords)
 
-func proche():
+func proche(): #a connecter au timer analyse pour analyse,sans oublier le print en bas
 	l=[]
 	for i in dico_distances:
 		k=true
