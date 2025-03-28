@@ -1,6 +1,6 @@
 ---
 layout: page
-title:  explanation
+title:  Explanation
 ---
 
 Overview:
