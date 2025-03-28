@@ -1,3 +1,8 @@
+---
+layout: page
+title:  explanation
+---
+
 Overview:
 The boids algorithm works and is able to simulate the flocking behavior of birds (as well as display other flocking behaviors like fish etc...) by making use of a simple set of three rules and varying factors:
 
