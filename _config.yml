@@ -10,15 +10,15 @@ logo:                  /assets/img/logo.png
 
 menu:
   - title:             Explanation
-    url:               /explanation.md/
+    url:               /explanation
   - title:             Showcase
-    url:               /showcase.md/
+    url:               /showcase
   - title:             Analysis
-    url:               /analysis.md/
+    url:               /analysis
   - title:             Journal
-    url:               /journal.md/
+    url:               /journal
   - title:             Download
-    url:               /download.md/
+    url:               /download
 
 # Sidebar image and theme color of the site.
 accent_image:          /assets/img/sidebar-bg.jpg
