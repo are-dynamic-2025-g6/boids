@@ -1,0 +1,3 @@
+remote_theme: hydecorp/hydejack
+plugins:
+  - jekyll-remote-theme
