@@ -4,9 +4,13 @@ plugins:
 
 title:                 Boids Algorithm
 description:           >
-  This is our webpage on the Boids algorithm
+  ARE - Research Project - By Loueï Muller, Gavriel Myara, Liron Afriat, Luka Arnaud, and Bastien Thieulot
 
 logo:                  /birdlogo.jpg
+
+author:
+  name:                Loueï Muller
+  email:               yurkiyurki1@gmail.com
 
 menu:
   - title:             Explanation
@@ -15,8 +19,10 @@ menu:
     url:               /showcase
   - title:             Analysis
     url:               /analysis
-  - title:             Journal
-    url:               /journal
+  - title:             Choices
+    url:               /choices
+  - title:             Conclusion
+    url:               /conclusion
   - title:             Download
     url:               /download
 
@@ -24,29 +30,3 @@ menu:
 accent_image:          /birdflock.jpg
 accent_color:          rgb(79,177,186)
 
-jekyll_compose:
-  default_front_matter:
-    drafts:
-      layout: post
-      description: > 
-        A short ~160 character description of your post for search engines,
-        social media previews, etc.
-      image:
-        path: /assets/img/sidebar-bg.jpg
-    posts:
-      layout: post
-      description: > 
-        A short ~160 character description of your post for search engines,
-        social media previews, etc.
-      image:
-        path: /assets/img/sidebar-bg.jpg
-    projects:
-      layout: project
-      description: > 
-        A short ~160 character description of your post for search engines,
-        social media previews, etc.
-      image:
-        path: /assets/img/sidebar-bg.jpg
-      links:
-        - title: Project Link
-          url: https://example.com
