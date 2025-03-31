@@ -21,5 +21,5 @@ menu:
     url:               /download
 
 # Sidebar image and theme color of the site.
-accent_image:          /assets/img/sidebar-bg.jpg
+accent_image:          /birdflock.jpg
 accent_color:          rgb(79,177,186)
