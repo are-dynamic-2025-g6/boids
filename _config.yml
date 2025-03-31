@@ -1,3 +1,25 @@
-remote_theme: hydecorp/hydejack
+remote_theme: hydecorp/hydejack@v9.2.1
 plugins:
   - jekyll-remote-theme
+
+title:                 Boids Algorithm
+description:           >
+  This is our webpage on the Boids algorithm
+
+logo:                  /assets/img/logo.png
+
+menu:
+  - title:             Explanation
+    url:               /explanation
+  - title:             Showcase
+    url:               /showcase
+  - title:             Analysis
+    url:               /analysis
+  - title:             Journal
+    url:               /journal
+  - title:             Download
+    url:               /download
+
+# Sidebar image and theme color of the site.
+accent_image:          /assets/img/sidebar-bg.jpg
+accent_color:          rgb(79,177,186)
