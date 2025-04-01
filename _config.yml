@@ -28,5 +28,5 @@ menu:
 
 # Sidebar image and theme color of the site.
 accent_image:          /birdflock.jpg
-accent_color:          rgb(79,177,186)
+accent_color:          rgb(255, 215, 0)
 
