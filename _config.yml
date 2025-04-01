@@ -33,3 +33,9 @@ menu:
 accent_image:          /birdflock.jpg
 accent_color:          rgb(255, 215, 0)
 
+hydejack:
+  dark_mode:
+    dynamic: true
+    icon:    true
+    always:  false
+
