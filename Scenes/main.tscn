@@ -98,5 +98,5 @@ wait_time = 3.0
 [connection signal="value_changed" from="alignment" to="." method="val_change" binds= ["alignment"]]
 [connection signal="value_changed" from="avoid" to="." method="val_change" binds= ["avoid"]]
 [connection signal="value_changed" from="speed" to="." method="val_change" binds= ["speed"]]
-[connection signal="timeout" from="Analyse" to="." method="array_coord"]
 [connection signal="timeout" from="Analyse" to="." method="_on_analyse_timeout"]
+[connection signal="timeout" from="Analyse" to="." method="array_coord"]
