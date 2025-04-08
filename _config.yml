@@ -1,1 +1,41 @@
-theme: modernist
+remote_theme: hydecorp/hydejack@v9.2.1
+plugins:
+  - jekyll-remote-theme
+
+title:                 Boids Algorithm
+description:           >
+  ARE - Research Project - By Loueï Muller, Gavriel Myara, Liron Afriat, Luka Arnaud, and Bastien Thieulot
+
+logo:                  birdlogo_resized.jpg
+
+author:
+  name:                Loueï Muller
+  email:               yurkiyurki1@gmail.com
+
+copyright:             © 2025
+
+
+menu:
+  - title:             Explanation
+    url:               /explanation
+  - title:             Showcase
+    url:               /showcase
+  - title:             Analysis
+    url:               /analysis
+  - title:             Choices
+    url:               /choices
+  - title:             Conclusion
+    url:               /conclusion
+  - title:             Download
+    url:               /download
+
+# Sidebar image and theme color of the site.
+accent_image:          /birdflock.jpg
+accent_color:          rgb(255, 215, 0)
+
+hydejack:
+  dark_mode:
+    dynamic: true
+    icon:    true
+    always:  false
+
