@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Explanation
+title: Explication
 ---
 
 <h3>Généralités:</h3>
