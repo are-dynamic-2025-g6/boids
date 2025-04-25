@@ -17,13 +17,13 @@ copyright:             © 2025
 
 menu:
   - title:             Explication
-    url:               /explanation
+    url:               /explication
   - title:             Showcase
     url:               /showcase
   - title:             Analyse
-    url:               /analysis
+    url:               /analyse
   - title:             Choix
-    url:               /choices
+    url:               /choix
   - title:             Conclusion
     url:               /conclusion
   - title:             Download
