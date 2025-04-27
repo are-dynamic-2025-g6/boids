@@ -30,7 +30,7 @@ menu:
     url:               download
 
 # Sidebar image and theme color of the site.
-accent_image:          birdflock.jpg
+accent_image:          website/birdflock.jpg
 accent_color:          rgb(255, 215, 0)
 
 hydejack:
