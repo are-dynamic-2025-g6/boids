@@ -3,11 +3,10 @@ plugins:
   - jekyll-remote-theme
 
 title:                 Boids Algorithm
-url: "https://are-dynamic-2025-g6.github.io/boids/website/"
 description:           >
   ARE - Research Project - By Loueï Muller, Gavriel Myara, Liron Afriat, Luka Arnaud, and Bastien Thieulot
 
-logo:                  website/birdlogo_resized.jpg
+logo:                  birdlogo_resized.jpg
 
 author:
   name:                Loueï Muller
@@ -18,20 +17,20 @@ copyright:             © 2025
 
 menu:
   - title:             Explication
-    url:               website/explication
+    url:               explication
   - title:             Showcase
-    url:               website/showcase
+    url:               showcase
   - title:             Analyse
-    url:               website/analyse
+    url:               analyse
   - title:             Choix
-    url:               website/choix
+    url:               choix
   - title:             Conclusion
-    url:               website/conclusion
+    url:               conclusion
   - title:             Download
-    url:               website/download
+    url:               download
 
 # Sidebar image and theme color of the site.
-accent_image:          website/birdflock.jpg
+accent_image:          birdflock.jpg
 accent_color:          rgb(255, 215, 0)
 
 hydejack:
