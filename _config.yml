@@ -6,7 +6,7 @@ title:                 Boids Algorithm
 description:           >
   ARE - Research Project - By Loueï Muller, Gavriel Myara, Liron Afriat, Luka Arnaud, and Bastien Thieulot
 
-logo:                  birdlogo_resized.jpg
+logo:                  website/birdlogo_resized.jpg
 
 author:
   name:                Loueï Muller
@@ -19,18 +19,18 @@ menu:
   - title:             Explication
     url:               website/explication
   - title:             Showcase
-    url:               /showcase
+    url:               website/showcase
   - title:             Analyse
-    url:               /analyse
+    url:               website/analyse
   - title:             Choix
-    url:               /choix
+    url:               website/choix
   - title:             Conclusion
-    url:               /conclusion
+    url:               website/conclusion
   - title:             Download
-    url:               /download
+    url:               website/download
 
 # Sidebar image and theme color of the site.
-accent_image:          /birdflock.jpg
+accent_image:          website/birdflock.jpg
 accent_color:          rgb(255, 215, 0)
 
 hydejack:
