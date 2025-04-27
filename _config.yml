@@ -6,7 +6,7 @@ title:                 Boids Algorithm
 description:           >
   ARE - Research Project - By Loueï Muller, Gavriel Myara, Liron Afriat, Luka Arnaud, and Bastien Thieulot
 
-logo:                  birdlogo_resized.jpg
+logo:                  website/birdlogo_resized.jpg
 
 author:
   name:                Loueï Muller
@@ -17,9 +17,9 @@ copyright:             © 2025
 
 menu:
   - title:             Explication
-    url:               explication
+    url:               website/explication
   - title:             Showcase
-    url:               showcase
+    url:               website/showcase
   - title:             Analyse
     url:               analyse
   - title:             Choix
