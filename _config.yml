@@ -17,9 +17,9 @@ copyright:             © 2025
 
 menu:
   - title:             Explication
-    url:               website/explication
+    url:               explication
   - title:             Showcase
-    url:               website/showcase
+    url:               showcase
   - title:             Analyse
     url:               analyse
   - title:             Choix
