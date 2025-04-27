@@ -3,6 +3,7 @@ plugins:
   - jekyll-remote-theme
 
 title:                 Boids Algorithm
+url: "https://are-dynamic-2025-g6.github.io/boids/website/"
 description:           >
   ARE - Research Project - By Loueï Muller, Gavriel Myara, Liron Afriat, Luka Arnaud, and Bastien Thieulot
 
