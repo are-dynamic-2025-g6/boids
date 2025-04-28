@@ -2,8 +2,6 @@
 layout: page
 title: Choix
 ---
-
-<h1>Choix réalisés:</h1>
 Nos choix se sous-sectionnent en trois grandes catégories: le graphisme, notre moteur, et enn les paramètres utilisés.
 
 <h2>Les graphismes:</h2>
