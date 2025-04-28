@@ -15,6 +15,10 @@ author:
 copyright:             © 2025
 
 
+image:
+  path:    /boids/boid_zone.png
+
+
 menu:
   - title:             Explication
     url:               /explication
