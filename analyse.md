@@ -29,21 +29,36 @@ inuencera le réalisme de notre simulation.
 Commençons par étudier la métrique donnant l’aperçu le plus général des comportements: le nombre d’oiseaux respectant une proximité de X pixels (ici, X = 10).
 En fixant les deux autres paramètres à des valeurs moyennes, et en faisant uctuer l’alignement, on observe tout de suite un résultat logique de convergence:
 
+<p align="center">
+    <img src="graph1.png">
+</p>
+
 Ce premier résultat, bien que préliminaire, permet déjà de tirer plusieurs conclusions:
 Déjà, si nous n’en étions pas persuadés, il est maintenant clair que les paramètres ont une inuence majeure sur le comportement des oiseaux. En second lieu, il semble que l'alignement applique correctement son inuence, et correspond au rôle qu’on lui a, plus tôt, attribué. En effet, si l’alignement des oiseaux est au maximum, alors tous les oiseaux suivent lamême direction. Ce qui, jusqu'à là, ne les rapproche pas. L’alignement n’a pas pour eet direct de regrouper les oiseaux entre eux, elle ajuste juste les directions, mais grâce à cet ajustement, la cohésion va pouvoir plus facilement former des groupes. On en déduit que même si ce n’est pas l’alignement qui provoque
 directement ce rassemblement, sans elle, les oiseaux ne se rassemblent pas.
 
 Continuons à faire varier les paramètres en modiant la cohésion :
 
+<p align="center">
+    <img src="graph2.png">
+</p>
+
 Concernant ces résultats, ils sont aussi très logiques. Si le cercle de cohésion croit, les oiseaux auront tendance à s'amalgamer avec un plus grand nombre d’oiseaux. Couronnez cela par le fait que chaque oiseau applique ce principe, et la simulation converge très vite vers un nombre élevé d’oiseaux proches. On note encore une fois la puissance et l’importance d’un singulier paramètre: quand bien même les deux autres paramètres xés à des valeurs “justes”, si celui-ci est mis à zéro, la simulation ne fonctionne pas.
 
 Poursuivons en modiant la valeur du paramètre de séparation:
 
-Ici encore, on constate un résultat satisfaisant. L’action du paramètre est claire:
-Si la séparation est minimum, alors les oiseaux ne se repoussent plus, et les autres paramètres rassemblent les oiseaux. Tandis que lors d’une forte séparation, les oiseaux se repoussent alors même qu’ils sont déjà éloignés, il est donc sensé que la courbe ache un nombre “d'oiseaux proches” tournant autour de zéro. On constate de plus l'impact de ce paramètre: même si la séparation est moyenne, cela empêche le système de
-converger. Analysons maintenant notre deuxième métrique, qui est tout aussi importante, le nombre de groupes. En effet, même si nous savons que deux oiseaux sont proches, ils ne font pas pour autant partie d’un même groupe. La métrique précédente nous fournit donc qu’une mesure relativement naïve de la structure adoptée par les oiseaux.
+<p align="center">
+    <img src="graph3.png">
+</p>
+
+Ici encore, on constate un résultat satisfaisant. L’action du paramètre est claire: Si la séparation est minimum, alors les oiseaux ne se repoussent plus, et les autres paramètres rassemblent les oiseaux. Tandis que lors d’une forte séparation, les oiseaux se repoussent alors même qu’ils sont déjà éloignés, il est donc sensé que la courbe ache un nombre “d'oiseaux proches” tournant autour de zéro. On constate de plus l'impact de ce paramètre: même si la séparation est moyenne, cela empêche le système de converger. Analysons maintenant notre deuxième métrique, qui est tout aussi importante, le nombre de groupes. En effet, même si nous savons que deux oiseaux sont proches, ils ne font pas pour autant partie d’un même groupe. La métrique précédente nous fournit donc qu’une mesure relativement naïve de la structure adoptée par les oiseaux.
 
 De plus, le graphe de la cohésion ressemble fortement à celui de l’alignement. Cela s’explique par le fait que à une échelle individuelle, les deux paramètres font la même chose (à savoir orienter les oiseaux dans une direction), c’est pour cela que pour voir l’utilité de chaque paramètre, il est important de créer une autre métrique analysant le système de manière global.
+
+<p align="center">
+    <img src="graph4.png">
+</p>
+
 Les résultats ici obtenus font encore oce de preuve, mais cette fois ci, de preuve able.
 La nuée d’oiseaux converge en général vers un seul groupe lorsque rien ne l’en empêche.
 Les conditions qui maximisent la convergence sont bien évidemment une cohésion maximisée, aux côtés d’une séparation minimale, mais on remarque que ce ne sont pas des conditions nécessaires, et que notre programme, tant que les paramètres choisis sont un tant soit peu judicieux, va converger vers une quantité réduite de groupes.
