@@ -2,9 +2,6 @@
 layout: page
 title: Conclusion
 ---
-
-<h1>Conclusion:</h1>
-
 <h2>Nos résultats:</h2>
 Nous pouvons armer que nous avons conçu une simulation réaliste d’une nuée d'oiseaux. Notre analyse permet de conrmer que notre programme mathématiquement converge vers des résultats naturels, et nous-même, en observant notre programme en tant que groupe, avons décrété que notre système répond aux attentes que nous avions pour lui au début de ce projet. Nous avons bien vu que grâce à nos 3 paramètres il nous est possible de nous rapprocher de la réalité et d’arriver à une convergence du système, tant que nos paramètres sont bien choisis. Cet algorithme permet donc une modélisation dynamique réaliste d’une nuée d’oiseaux, tout en utilisant un nombre de paramètres nis.
 
