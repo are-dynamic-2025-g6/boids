@@ -3,7 +3,6 @@ layout: page
 title: Analyse
 ---
 
-<h1>Analyse:</h1>
 Notre modèle maintenant fonctionnel et évoluant sur la base d’un nombre de paramètres nis, il nous incombe de prendre du recul sur son comportement. Il est inclus dans la dénition de système dynamique: “évolution d’un système au cours du temps”. Il en découle naturellement les questions suivantes:
   - La nuée d'oiseaux après un certain temps est-elle divergente? Convergente? Dépend-elle de la situation initiale ?
   - Les paramètres ont-ils un impact sur le résultat ? Si oui, dans quelles mesures ?
@@ -17,8 +16,8 @@ Pour répondre à toutes ces questions il nous faut:
 Nous avons donc choisi deux métriques:
 - Le nombre de groupes (pouvant aller de 1 à 10)
 - Le nombre d’oiseaux relativement proches.
-- 
-La deuxième métrique est facilement obtenable: il sut à un instant T, de lancer une fonction qui compte le nombre d’oiseaux proches, selon un critère de proximité prédéni (10 pixels en l'occurrence).
+
+La deuxième métrique est facilement obtenable: il suffit à un instant T, de lancer une fonction qui compte le nombre d’oiseaux proches, selon un critère de proximité prédéni (10 pixels en l'occurrence).
 En revanche, le comptage de groupe se révèle complexe: Comment compter correctement des groupes à un instant précis? Facile, voire évident pour l’être humain, et pourtant dicilement réalisable par une machine. Pour permettre à l'ordinateur de sectionner nos oiseaux en diérents groupes, nous utilisons l’algorithme des k-means, pour créer 10 groupes, puis nous fusionnons les groupes dont les extrêmes sont communs à d'autres, ce qui nous fournit un nombre de groupe ni à un instant donné.
 Nous avons, pour automatiser cette tâche, crée un système qui toutes les trois secondes retranscrit dans un fichier texte toutes les positions des oiseaux, puis, nous avons créé un Jupyter Notebook pour pouvoir exploiter ces données et appliquer l’algorithme des k-means.
 
