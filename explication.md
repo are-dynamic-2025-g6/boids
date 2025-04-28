@@ -26,9 +26,6 @@ modulables et font partie des paramètres inuençant notre simulation,
 que nous détaillerons plus tard).
 Ce point étant clarié, voici les règles:
 
-image:
-  path:    /boids/boid_zone.png
-
 <h3>Séparation:</h3>
 Chaque individu s'éloigne de ceux qui sont trop proches.
 Quand un ou plusieurs individus sont détéctés à l’interieur de la zone
