@@ -2,8 +2,6 @@
 layout: page
 title: Explication
 ---
-<h1>L’algorithme de Boids:</h1>
-<br>
 <h2>Généralités:</h2>
 L’algorithme de Boids est utilisé majoritairement en représentation graphique. Il permet de réaliser une
 simulation réaliste d’une nuée d'oiseaux ainsi que d'autres créatures se déplaçant en groupe, telles un banc de
