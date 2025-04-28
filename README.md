@@ -1,8 +1,3 @@
----
-layout: page
-title: Introduction
----
-
 <h1>Introduction:</h1>
 “A flock of birds”, en français, une nuée d'oiseaux. Un terme utilisé pour décrire les déplacements groupés et
 caractéristiques de ces animaux. Souvent associées à ce mot sont les hypnotisantes structures adoptées par ces
