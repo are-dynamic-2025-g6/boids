@@ -70,6 +70,7 @@ func val_change(value : int,param : String) :
 				Engine.time_scale = float(value) / 100
 
 func array_coord():
+	return
 	compte_analyse += 1
 	var path = OS.get_system_dir(OS.SYSTEM_DIR_DESKTOP) + "/Sc-Fo/Boids/boids/Analyse/"
 	var dir = DirAccess.open(OS.get_system_dir(OS.SYSTEM_DIR_DESKTOP))
